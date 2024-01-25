@@ -7,7 +7,7 @@ minio:
   mode: standalone
   resources:
     requests:
-      memory: 1024Mi
+      memory: 256Mi
 pulsar:
   enabled: true
   components:
