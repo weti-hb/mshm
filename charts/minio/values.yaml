@@ -141,7 +141,7 @@ persistence:
   storageClass: ""
   VolumeName: ""
   accessMode: ReadWriteOnce
-  size: 500Gi
+  size: 1Gi
 
   ## If subPath is set mount a sub folder of a volume instead of the root of the volume.
   ## This is especially handy for volume plugins that don't natively support sub mounting (like glusterfs).
@@ -223,7 +223,7 @@ podLabels: {}
 ##
 resources:
   requests:
-    memory: 4Gi
+    memory: 1Gi
 
 ## Create a bucket after minio install
 ##
@@ -274,7 +274,7 @@ updatePrometheusJob:
 
 s3gateway:
   enabled: false
-  replicas: 4
+  replicas: 2 
   serviceEndpoint: ""
   accessKey: ""
   secretKey: ""
@@ -284,7 +284,7 @@ s3gateway:
 azuregateway:
   enabled: false
   # Number of parallel instances
-  replicas: 4
+  replicas: 2
 
 ## Use minio as GCS (Google Cloud Storage) gateway, you should disable data persistence so no volume claim are created.
 ## https://docs.minio.io/docs/minio-gateway-for-gcs
@@ -292,7 +292,7 @@ azuregateway:
 gcsgateway:
   enabled: false
   # Number of parallel instances
-  replicas: 4
+  replicas: 2
   # credential json file of service account key
   gcsKeyJson: ""
   # Google cloud project-id
@@ -304,7 +304,7 @@ gcsgateway:
 nasgateway:
   enabled: false
   # Number of parallel instances
-  replicas: 4
+  replicas: 2
   # For NAS Gateway, you may want to bind the PVC to a specific PV. To ensure that happens, PV to bind to should have
   # a label like "pv: <value>", use value here.
   pv: ~
