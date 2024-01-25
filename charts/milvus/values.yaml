@@ -165,7 +165,7 @@ log:
       ##
       storageClass:
       accessModes: ReadWriteMany
-      size: 10Gi
+      size: 1Gi
       subPath: ""
 
 ## Heaptrack traces all memory allocations and annotates these events with stack traces.
@@ -217,7 +217,7 @@ standalone:
       ##
       storageClass:
       accessModes: ReadWriteOnce
-      size: 50Gi
+      size: 1Gi
       subPath: ""
 
 proxy:
@@ -474,7 +474,7 @@ minio:
     enabled: false
   resources:
     requests:
-      memory: 2Gi
+      memory: 1Gi
 
   gcsgateway:
     enabled: false
@@ -491,7 +491,7 @@ minio:
     existingClaim: ""
     storageClass:
     accessMode: ReadWriteOnce
-    size: 500Gi
+    size: 2Gi
 
   livenessProbe:
     enabled: true
@@ -545,7 +545,7 @@ etcd:
     enabled: true
     storageClass:
     accessMode: ReadWriteOnce
-    size: 10Gi
+    size: 1Gi
 
   ## Change default timeout periods to mitigate zoobie probe process
   livenessProbe:
@@ -642,7 +642,7 @@ pulsar:
   zookeeper:
     resources:
       requests:
-        memory: 1024Mi
+        memory: 512Mi
         cpu: 0.3
     configData:
       PULSAR_MEM: >
@@ -665,14 +665,14 @@ pulsar:
     volumes:
       journal:
         name: journal
-        size: 100Gi
+        size: 2Gi
       ledgers:
         name: ledgers
-        size: 200Gi
+        size: 2Gi
     resources:
       requests:
-        memory: 2048Mi
-        cpu: 1
+        memory: 512Mi
+        cpu: 0.5
     configData:
       PULSAR_MEM: >
         -Xms4096m
@@ -704,8 +704,8 @@ pulsar:
     replicaCount: 1
     resources:
       requests:
-        memory: 4096Mi
-        cpu: 1.5
+        memory: 512Mi
+        cpu: 0.5
     configData:
       PULSAR_MEM: >
         -Xms4096m
@@ -745,7 +745,7 @@ pulsar:
       enabled: false
     resources:
       requests:
-        memory: 2048Mi
+        memory: 512Mi
         cpu: 1
     service:
       type: ClusterIP
@@ -816,7 +816,7 @@ kafka:
     enabled: true
     storageClass:
     accessMode: ReadWriteOnce
-    size: 300Gi
+    size: 3Gi
 
   metrics:
     ## Prometheus Kafka exporter: exposes complimentary metrics to JMX exporter
