@@ -223,7 +223,7 @@ podLabels: {}
 ##
 resources:
   requests:
-    memory: 1Gi
+    memory: 0.5GI #1Gi
 
 ## Create a bucket after minio install
 ##
@@ -260,7 +260,7 @@ makeBucketJob:
     fsGroup: 1000
   resources:
     requests:
-      memory: 128Mi
+      memory: 64Mi #128Mi
 
 ## Additional Annotations for the Kubernetes Batch (update-prometheus-secret)
 updatePrometheusJob:
