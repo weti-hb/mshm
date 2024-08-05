@@ -7,7 +7,7 @@ minio:
   mode: standalone
   resources:
     requests:
-      memory: 256Mi
+      memory: 64Mi #256Mi
 pulsar:
   enabled: true
   components:
@@ -16,13 +16,13 @@ pulsar:
     resources:
       requests:
         cpu: 0.1
-        memory: 256Mi
+        memory: 64Mi #256Mi
   proxy:
     replicaCount: 1
     resources:
       requests:
-        cpu: 0.2
-        memory: 256Mi
+        cpu: 0.1 #0.2
+        memory: 64Mi #256Mi
     configData:
       PULSAR_MEM: >
         -Xms256m -Xmx256m
@@ -33,7 +33,7 @@ pulsar:
     resources:
       requests:
         cpu: 0.2
-        memory: 512Mi
+        memory: 64Mi #512Mi
     configData:
       PULSAR_MEM: >
         -Xms512m -Xmx512m
@@ -56,7 +56,7 @@ pulsar:
     resources:
       requests:
         cpu: 0.1
-        memory: 256Mi
+        memory: 64Mi #256Mi
     configData:
       PULSAR_MEM: >
         -Xms256m
@@ -73,8 +73,8 @@ pulsar:
     replicaCount: 1
     resources:
       requests:
-        cpu: 0.2
-        memory: 512Mi
+        cpu: 0.1 #0.2
+        memory: 64Mi #512Mi
     configData:
       PULSAR_MEM: >
         -Xms512m
