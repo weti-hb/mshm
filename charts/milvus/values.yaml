@@ -165,7 +165,7 @@ log:
       ##
       storageClass:
       accessModes: ReadWriteMany
-      size: 1Gi
+      size: 0.5Gi #1Gi
       subPath: ""
 
 ## Heaptrack traces all memory allocations and annotates these events with stack traces.
@@ -217,7 +217,7 @@ standalone:
       ##
       storageClass:
       accessModes: ReadWriteOnce
-      size: 1Gi
+      size: 0.5Gi #1Gi
       subPath: ""
 
 proxy:
@@ -474,7 +474,7 @@ minio:
     enabled: false
   resources:
     requests:
-      memory: 1Gi
+      memory: 0.5Gi #1Gi
 
   gcsgateway:
     enabled: false
@@ -545,7 +545,7 @@ etcd:
     enabled: true
     storageClass:
     accessMode: ReadWriteOnce
-    size: 1Gi
+    size: 0.5Gi #1Gi
 
   ## Change default timeout periods to mitigate zoobie probe process
   livenessProbe:
@@ -642,8 +642,8 @@ pulsar:
   zookeeper:
     resources:
       requests:
-        memory: 512Mi
-        cpu: 0.3
+        memory: 128Mi #512Mi
+        cpu: 0.1 #0.3
     configData:
       PULSAR_MEM: >
         -Xms1024m
@@ -665,14 +665,14 @@ pulsar:
     volumes:
       journal:
         name: journal
-        size: 2Gi
+        size: 0.5Gi #2Gi
       ledgers:
         name: ledgers
-        size: 2Gi
+        size: 0.5Gi #2Gi
     resources:
       requests:
-        memory: 512Mi
-        cpu: 0.5
+        memory: 128Mi #512Mi
+        cpu: 0.1 #0.5
     configData:
       PULSAR_MEM: >
         -Xms4096m
@@ -704,8 +704,8 @@ pulsar:
     replicaCount: 1
     resources:
       requests:
-        memory: 512Mi
-        cpu: 0.5
+        memory: 128Mi #512Mi
+        cpu: 0.1 #0.5
     configData:
       PULSAR_MEM: >
         -Xms4096m
@@ -726,7 +726,7 @@ pulsar:
       maxMessageSize: "104857600"
       defaultRetentionTimeInMinutes: "10080"
       defaultRetentionSizeInMB: "-1"
-      backlogQuotaDefaultLimitGB: "8"
+      backlogQuotaDefaultLimitGB: "1" #"8"
       ttlDurationDefaultInSeconds: "259200"
       subscriptionExpirationTimeMinutes: "3"
       backlogQuotaDefaultRetentionPolicy: producer_exception
@@ -745,8 +745,8 @@ pulsar:
       enabled: false
     resources:
       requests:
-        memory: 512Mi
-        cpu: 1
+        memory: 128Mi #512Mi
+        cpu: 0.25 #1
     service:
       type: ClusterIP
     ports:
@@ -816,7 +816,7 @@ kafka:
     enabled: true
     storageClass:
     accessMode: ReadWriteOnce
-    size: 3Gi
+    size: 1Gi #3Gi
 
   metrics:
     ## Prometheus Kafka exporter: exposes complimentary metrics to JMX exporter
